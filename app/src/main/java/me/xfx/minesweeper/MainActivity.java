@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity{
         sel9.setOnClickListener((v)-> {
             row = 9;
             col = 9;
-
         });
 
     }
