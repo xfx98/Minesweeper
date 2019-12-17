@@ -1,12 +1,14 @@
 package me.xfx.minesweeper;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
     private Button sel9,sel16,sel30,selother,phblocal,phblink;
+    private static int row,col;
+    private Intent i = new Intent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         phblocal = findViewById(R.id.phblocal);
         phblocal = findViewById(R.id.phblink);
 
+        sel9.setOnClickListener((v)-> {
+            row = 9;
+            col = 9;
+
+        });
 
     }
 }
