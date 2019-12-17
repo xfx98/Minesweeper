@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/sel9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="8行8列\n10颗雷"></Button>
+    <Button
+        android:id="@+id/sel16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="16行16列\n40颗雷"></Button>
+    <Button
+        android:id="@+id/sel30"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="30行30列\n120颗雷"></Button>
+    <Button
+        android:id="@+id/selother"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="\?\n自定义"></Button>
+    <Button
+        android:id="@+id/phblocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看排行榜\n（本地）"></Button>
+    <Button
+        android:id="@+id/phblink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="查看排行榜\n（联网）"></Button>
+
+</LinearLayout>
