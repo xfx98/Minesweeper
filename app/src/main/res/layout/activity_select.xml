@@ -13,7 +13,7 @@
             android:layout_weight="1"
             android:gravity="right"/>
         <EditText
-            android:id="@+id/row"
+            android:id="@+id/et_row"
             android:layout_weight="5"/>
     </TableRow>
     <TableRow>
@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:gravity="right"/>
         <EditText
-            android:id="@+id/col"
+            android:id="@+id/et_col"
             android:layout_weight="5"/>
     </TableRow>
     <TableRow>
@@ -31,7 +31,7 @@
             android:layout_weight="1"
             android:gravity="right"/>
         <EditText
-            android:id="@+id/mines"
+            android:id="@+id/et_mines"
             android:layout_weight="5"/>
     </TableRow>
     <TableRow android:gravity="center">

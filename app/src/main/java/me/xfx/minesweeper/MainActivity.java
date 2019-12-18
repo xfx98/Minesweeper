@@ -18,6 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        init();
+    }
+
+    private void init() {
         sel9 = findViewById(R.id.sel8);
         sel16 = findViewById(R.id.sel16);
         sel30 = findViewById(R.id.sel30);
@@ -68,12 +72,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
             return;
         }
+        Intent i=null;
         switch (v.getId()) {
             case R.id.phblocal:
-
+                i = new Intent(this,PhbActivity.class);
+                i.putExtra("code",1);
+                startActivity(i);
                 break;
             case R.id.phblink:
-
+                i = new Intent(this,PhbActivity.class);
+                i.putExtra("code",2);
+                startActivity(i);
                 break;
         }
     }
