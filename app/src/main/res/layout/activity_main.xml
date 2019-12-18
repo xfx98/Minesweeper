@@ -9,7 +9,7 @@
     android:gravity="center">
 
     <Button
-        android:id="@+id/sel9"
+        android:id="@+id/sel8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="8行8列\n10颗雷"></Button>

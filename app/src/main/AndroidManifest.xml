@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".SelectAction" android:launchMode="singleTask" android:theme="@style/Theme.AppCompat.DayNight.Dialog"/>
+        <activity android:name=".GameActivity" android:launchMode="singleTask"/>
+        <activity android:name=".MainActivity" android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
