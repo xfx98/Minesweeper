@@ -23,9 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sel30 = findViewById(R.id.sel30);
         selother = findViewById(R.id.selother);
         phblocal = findViewById(R.id.phblocal);
-        phblocal = findViewById(R.id.phblink);
+        phblink = findViewById(R.id.phblink);
         sel9.setOnClickListener(this);
-
+        sel16.setOnClickListener(this);
+        sel30.setOnClickListener(this);
+        selother.setOnClickListener(this);
+        phblink.setOnClickListener(this);
+        phblocal.setOnClickListener(this);
     }
 
     @Override
@@ -66,10 +70,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         switch (v.getId()) {
             case R.id.phblocal:
-                flag = true;
+
                 break;
             case R.id.phblink:
-                flag = true;
+
                 break;
         }
     }

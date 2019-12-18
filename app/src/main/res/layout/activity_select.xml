@@ -10,26 +10,29 @@
     <TableRow>
         <TextView
             android:text="行数:"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:gravity="right"/>
         <EditText
             android:id="@+id/row"
-            android:layout_weight="3"/>
+            android:layout_weight="5"/>
     </TableRow>
     <TableRow>
         <TextView
             android:text="列数:"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:gravity="right"/>
         <EditText
             android:id="@+id/col"
-            android:layout_weight="3"/>
+            android:layout_weight="5"/>
     </TableRow>
     <TableRow>
         <TextView
             android:text="炸弹数:"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:gravity="right"/>
         <EditText
             android:id="@+id/mines"
-            android:layout_weight="3"/>
+            android:layout_weight="5"/>
     </TableRow>
     <TableRow android:gravity="center">
         <Button
