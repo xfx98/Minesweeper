@@ -11,10 +11,9 @@ public class DbOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table phb (_id integer primary key autoincrement," +
-                "name varchar(10),time int)");
+        db.execSQL("create table LocalRecord (_id integer primary key autoincrement," +
+                "name varchar(40),time int, seltype varchar(40))");
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
