@@ -32,11 +32,6 @@
         android:id="@+id/phblocal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="查看排行榜\n（本地）"></Button>
-    <Button
-        android:id="@+id/phblink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="查看排行榜\n（联网）"></Button>
+        android:text="查看记录\n（本地）"></Button>
 
 </LinearLayout>
