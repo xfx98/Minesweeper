@@ -17,8 +17,7 @@ public class PhbActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phb);
-        dbHelper = new DbOpenHelper(this, this.getFilesDir().toString() + "/LocalPhb.db3", 2);
-        System.err.println(this.getFilesDir().toString() + "/LocalPhb.db3");
+        dbHelper = new DbOpenHelper(this, this.getFilesDir().toString() + "/LocalRecord.db", 1);
         ListView phb = findViewById(R.id.phb);
         Intent i = getIntent();
         int code = i.getIntExtra("code",0);
@@ -28,7 +27,7 @@ public class PhbActivity extends AppCompatActivity {
         switch (code){
             case 1:
                 Cursor cursor = dbHelper.getReadableDatabase()
-                        .rawQuery("select * from LocalPhb", null);
+                        .rawQuery("select * from LocalRecord", null);
                 inflateList(cursor);
                 break;
             case 2:
@@ -40,8 +39,8 @@ public class PhbActivity extends AppCompatActivity {
     private void inflateList(Cursor cursor) {
         // 填充SimpleCursorAdapter
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                PhbActivity.this, R.layout.cell, cursor, new String[]{"name", "time"},
-                new int[]{R.id.tv_Name, R.id.tv_Phone}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER
+                PhbActivity.this, R.layout.cell, cursor, new String[]{"name", "time","seltype"},
+                new int[]{R.id.tv_Name, R.id.tv_Time,R.id.tv_Type}, CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER
         );
         // 显示数据
         ListView lv_show = findViewById(R.id.phb);

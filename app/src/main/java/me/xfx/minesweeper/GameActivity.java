@@ -1,23 +1,18 @@
 package me.xfx.minesweeper;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.fragment.app.DialogFragment;
-
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.util.HashMap;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -50,21 +45,22 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
         myHandler = new Handler() {
 
             public void handleMessage(Message msg) {
+                super.handleMessage(msg);
                 switch (msg.what) {
                     case 1:
-                        super.handleMessage(msg);
+
                         String s = msg.getData().getString("time");
                         time.setText(s);
                         time.invalidate();
                         break;
                     case 2:
+                        symines.setText("" + nowMines);
                         break;
                     case 3:
                         drawOver();
                         break;
 
                 }
-
                 super.handleMessage(msg);
                 String s = msg.getData().getString("time");
                 time.setText(s);
@@ -85,24 +81,25 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                         bundle.putString("time", s);
                         m.setData(bundle);
                         m.sendToTarget();
-                        if(isExit){
+                        if (isExit) {
                             return;
                         }
                         try {
-                            Thread.sleep(500);
+                            Thread.sleep(100);
                         } catch (Exception e) {
                         }
                     }
                     Message m = myHandler.obtainMessage();
                     m.what = 3;
                     m.sendToTarget();
-                    Intent i = new Intent(GameActivity.this,ShowResult.class);
+                    Intent i = new Intent(GameActivity.this, ShowResult.class);
                     if (nowOpen == row * col - mines) {
-                        i.putExtra("status",1);
+                        i.putExtra("status", 1);
                     } else {
-                        i.putExtra("status",2);
+                        i.putExtra("status", 2);
                     }
-                    i.putExtra("time",nowTime - beginTime);
+                    i.putExtra("time", nowTime - beginTime);
+                    i.putExtra("type", "大小：" + row + "*" + col + "雷数：" + mines);
                     startActivity(i);
                 }
         );
@@ -213,9 +210,6 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                 if (allMines[x][y].isMine) {
                     over = true;
                     allMines[x][y].wa = true;
-                    Message m = myHandler.obtainMessage();
-                    m.what = 2;
-                    m.sendToTarget();
                 } else if (allMines[x][y].status != 1) {
                     Queue<Mine> q = new LinkedList<>();
                     q.add(allMines[x][y]);
@@ -248,6 +242,9 @@ public class GameActivity extends AppCompatActivity implements View.OnClickListe
                     nowMines++;
                 }
                 ((AppCompatButton) v).setBackgroundDrawable(getDrawable(status[allMines[x][y].status]));
+                Message m = myHandler.obtainMessage(); //更新炸弹说明信息
+                m.what = 2;
+                m.sendToTarget();
             }
         }
     }

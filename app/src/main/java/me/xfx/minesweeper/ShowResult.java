@@ -12,15 +12,15 @@ public class ShowResult extends AppCompatActivity {
     private DbOpenHelper dbHelper = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        dbHelper = new DbOpenHelper(this, this.getFilesDir().toString() + "/LocalPhb.db3", 2);
+        dbHelper = new DbOpenHelper(this, this.getFilesDir().toString() + "/LocalRecord.db", 1);
         super.onCreate(savedInstanceState);
         Intent i = getIntent();
         int status = i.getIntExtra("status",2);
         long time = i.getLongExtra("time",0);
+        String type = i.getStringExtra("type");
         if(status==1){
             setContentView(R.layout.activity_show_result_win);
             Button bok = findViewById(R.id.ok);
-            Button bno = findViewById(R.id.no);
             TextView tv = findViewById(R.id.time);
             TextView name = findViewById(R.id.name);
             tv.setText("你的用时为："+time+"ms");
@@ -29,20 +29,10 @@ public class ShowResult extends AppCompatActivity {
                     Toast.makeText(ShowResult.this,"名称不能为空",Toast.LENGTH_LONG).show();
                     return;
                 }
-                dbHelper.getReadableDatabase().execSQL("insert into LocalPhb values(null , ? , ?)",
-                        new Object[]{name.getText().toString(), time});
+                dbHelper.getReadableDatabase().execSQL("insert into LocalRecord values(null , ? , ?,?)",
+                        new Object[]{name.getText().toString(), time ,type});
                 finish();
             });
-            bno.setOnClickListener((view)->{
-                if(name.getText().toString()==null||name.getText().toString().trim().equals("")){
-                    Toast.makeText(ShowResult.this,"名称不能为空",Toast.LENGTH_LONG).show();
-                    return;
-                }
-                dbHelper.getReadableDatabase().execSQL("insert into LocalPhb values(null , ? , ?)",
-                        new Object[]{name.getText().toString(), time});
-                finish();
-            });
-
         }else{
             setContentView(R.layout.activity_show_result_lose);
             Button b = findViewById(R.id.ok);
@@ -50,7 +40,6 @@ public class ShowResult extends AppCompatActivity {
                 finish();
             });
         }
-
     }
 
     @Override
