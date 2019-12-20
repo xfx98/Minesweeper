@@ -8,8 +8,13 @@
     tools:context=".PhbActivity">
     <ListView
         android:id="@+id/phb"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
     </ListView>
+    <Button
+        android:id="@+id/phb_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定"/>
 </LinearLayout>

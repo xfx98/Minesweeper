@@ -18,7 +18,7 @@ public class SelectAction extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
         init();
-       ;
+
         beginGame.setOnClickListener((e)->{
             try{
                 row = Integer.parseInt(et_row.getText().toString());
@@ -27,7 +27,10 @@ public class SelectAction extends AppCompatActivity {
                 Intent i = new Intent(this,GameActivity.class);
                 i.putExtra("row",row);
                 i.putExtra("col",col);
-                i.putExtra("mines",row);
+                i.putExtra("mines",mines);
+                if(mines>=row*col-1){
+                    throw new RuntimeException();
+                }
                 startActivity(i);
                 finish();
             }catch (Exception ex){

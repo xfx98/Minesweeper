@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this,GameActivity.class);
             i.putExtra("row",row);
             i.putExtra("col",col);
-            i.putExtra("mines",row);
+            i.putExtra("mines",mines);
             startActivity(i);
             return;
         }

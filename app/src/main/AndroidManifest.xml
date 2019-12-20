@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PhbActivity"></activity>
+        <activity
+            android:name=".ShowResult"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.AppCompat.DayNight.Dialog" />
+        <activity
+            android:name=".PhbActivity"
+            android:launchMode="singleTask" />
         <activity
             android:name=".SelectAction"
             android:launchMode="singleTask"

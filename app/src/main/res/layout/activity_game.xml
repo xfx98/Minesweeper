@@ -1,62 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".GameActivity">
+
     <LinearLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="剩余雷数：" />
+
         <TextView
             android:id="@+id/symines"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
+
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="时间："/>
+            android:text="时间：" />
+
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
-    <GridLayout
-        android:id="@+id/game_area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/top"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom"
-        ></GridLayout>
+
     <LinearLayout
-        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1">
+        <com.shizhefei.view.hvscrollview.HVScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fadingEdge="horizontal|vertical"
+            android:scrollbars="horizontal|vertical"
+            app:childLayoutCenter="true"
+            app:fillViewportH="false"
+            app:fillViewportV="false"
+            app:scrollOrientation="both">
+
+           <GridLayout
+                android:id="@+id/game_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </com.shizhefei.view.hvscrollview.HVScrollView>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:gravity="center"
-        >
-
+        android:gravity="center">
         <ImageButton
             android:id="@+id/btn_use"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/chan"
-            android:layout_gravity="center"/>
-
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/chan" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
